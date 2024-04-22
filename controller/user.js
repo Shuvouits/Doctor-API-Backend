@@ -250,7 +250,7 @@ exports.stripePayment = async (req, res) => {
         const stripe = new Stripe(process.env.STRIPE_SECRET);
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
-            success_url: `${process.env.CLIENT_SITE_URL}/checkout-success`,
+            success_url: `https://doctor.shuvobhowmik.xyz/checkout-success/checkout-success`,
             cancel_url: `${req.protocol}://${req.get('host')}/doctors/${doctor.id}`,
             customer_email: user.email,
             client_reference_id: req.params.doctorId,
